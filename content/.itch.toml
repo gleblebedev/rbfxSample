@@ -1,0 +1,34 @@
+[[prereqs]]
+name = "net-4.7.1"
+
+[[actions]]
+name = "play"
+path = "rbfxSample.exe"
+platform = "windows"
+
+[[actions]]
+name = "Launch in High DPI mode"
+path = "rbfxSample.exe"
+platform = "windows"
+args = ["-h"]
+
+[[actions]]
+name = "play"
+path = "rbfxSample.osx"
+platform = "osx"
+args = ["-w"]
+
+[[actions]]
+name = "Launch in High DPI mode"
+path = "rbfxSample.osx"
+platform = "osx"
+args = ["-w", "-h"]
+
+[[actions]]
+name = "play"
+path = "rbfxSample.linux"
+platform = "linux"
+
+[[actions]]
+name = "Source code"
+path = "https://github.com/gleblebedev/rbfxSample"

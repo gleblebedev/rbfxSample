@@ -1,0 +1,33 @@
+# Build project for Windows
+
+jobs:
+- job: Build_Windows
+  displayName: 'Build Windows'
+  pool:
+    vmImage: 'windows-latest'
+
+  steps:
+  - checkout: self
+    submodules: true
+    displayName: 'Checkout project'
+
+  - task: NuGetCommand@2
+    inputs:
+      command: 'restore'
+      restoreSolution: '$(Agent.BuildDirectory)/s/src/rbfxSample.sln'
+      feedsToUse: 'select'
+      vstsFeed: '$(VstsFeed)'
+      includeNuGetOrg: true
+
+  - task: MSBuild@1
+    displayName: 'Build game'
+    inputs:
+      solution: '$(Agent.BuildDirectory)/s/src/rbfxSample.sln' 
+      configuration: release
+
+  - task: PublishPipelineArtifact@1
+    displayName: 'Publish game binaries'
+    inputs:
+      targetPath: '$(Agent.BuildDirectory)/s/src/rbfxSample/bin/Release/net471'
+      contents: '**' 
+      artifactName: 'win-bin'

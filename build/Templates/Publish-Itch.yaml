@@ -1,0 +1,53 @@
+# Publish to itch.io
+
+jobs:
+- job: Publish
+  displayName: 'Publish on Itch.io'
+  pool:
+    vmImage: 'windows-latest'
+
+  steps:
+
+  - task: PowerShell@2
+    displayName: 'Download butler'
+    inputs:
+      targetType: inline
+      script: New-Item -ItemType "directory" -Path $(Agent.BuildDirectory)/tmp; Invoke-WebRequest -Uri https://broth.itch.ovh/butler/windows-amd64/LATEST/archive/default -OutFile $(Agent.BuildDirectory)/tmp/butler.zip
+
+  - task: ExtractFiles@1
+    displayName: 'Extract butler'
+    inputs:
+      archiveFilePatterns: '$(Agent.BuildDirectory)/tmp/butler.zip' 
+      destinationFolder: '$(Agent.BuildDirectory)/tools/'
+      cleanDestinationFolder: false
+
+  - task: DownloadPipelineArtifact@2
+    displayName: 'Download Windows binaries'
+    inputs:
+      source: 'current'
+      artifact: 'win-bin'
+      path: '$(Build.ArtifactStagingDirectory)/build'
+
+  - task: DownloadPipelineArtifact@2
+    displayName: 'Download Mac binaries'
+    inputs:
+      source: 'current'
+      artifact: 'osx-bin'
+      path: '$(Build.ArtifactStagingDirectory)/build'
+
+  - task: DownloadPipelineArtifact@2
+    displayName: 'Download Linux binaries'
+    inputs:
+      source: 'current'
+      artifact: 'linux-bin'
+      path: '$(Build.ArtifactStagingDirectory)/build'
+
+  #- script: 'echo $()>$(Agent.BuildDirectory)/tools/butler.key'
+  #  displayName: 'Create identity file from environment variable'
+  #  failOnStderr: true
+
+  - script: |
+      Set BUTLER_API_KEY=$(BUTLER_API_KEY)
+      $(Agent.BuildDirectory)/tools/butler push $(Build.ArtifactStagingDirectory)/build glg/rbfxazuredevopssample:win-mac-linux-preview
+    displayName: 'Publish to itch.io'
+    failOnStderr: true
