@@ -8,6 +8,7 @@ jobs:
 
   steps:
   - checkout: self
+    lfs: true
     submodules: true
     displayName: 'Checkout project'
 
