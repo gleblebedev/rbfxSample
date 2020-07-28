@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using CommandLine;
+using Urho3DNet;
 
 namespace rbfxSample
 {
@@ -21,5 +22,8 @@ namespace rbfxSample
 
         [Option('h', "highdpi", Required = false, HelpText = "High DPI mode")]
         public bool HighDpi { get; set; } = false;
+
+        [Option("renderpath", Required = false, HelpText = "Render path")]
+        public string RenderPath { get; set; } = "RenderPaths/ForwardHWDepth.xml";
     }
 }

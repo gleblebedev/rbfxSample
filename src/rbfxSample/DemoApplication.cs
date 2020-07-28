@@ -46,6 +46,7 @@ namespace rbfxSample
             engineParameters_[Urho3D.EpWindowTitle] = "Urho3D/rbfx sample";
             engineParameters_[Urho3D.EpResourcePrefixPaths] = $"{currentDir};{currentDir}/..";
             engineParameters_[Urho3D.EpHighDpi] = _options.HighDpi;
+            engineParameters_[Urho3D.EpRenderPath] = _options.RenderPath;
         }
 
         public override void Start()
@@ -60,8 +61,8 @@ namespace rbfxSample
             _viewport = new Viewport(Context);
             _viewport.Scene = _scene;
             _viewport.Camera = _camera.GetComponent<Camera>();
-            var renderPath = _viewport.RenderPath;
-            renderPath.Append(Context.Cache.GetResource<XMLFile>("PostProcess/GammaCorrection.xml"));
+            //var renderPath = _viewport.RenderPath;
+            //renderPath.Append(Context.Cache.GetResource<XMLFile>("PostProcess/GammaCorrection.xml"));
             Context.Renderer.SetViewport(0, _viewport);
             _camera.Parent.CreateComponent<RotateObject>();
 

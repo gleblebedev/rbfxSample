@@ -1,0 +1,43 @@
+<renderpath>
+    <rendertarget name="depth" sizedivisor="1 1" format="readabledepth" />
+    <command type="clear" color="fog" depth="1.0" stencil="0" depthstencil="depth" />
+    <command type="scenepass" pass="base" vertexlights="true" metadata="base" depthstencil="depth" />
+    <command type="forwardlights" pass="light" depthstencil="depth" />
+    <command type="scenepass" pass="postopaque" depthstencil="depth" />
+    <command type="scenepass" pass="refract" depthstencil="depth">
+        <texture unit="environment" name="viewport" />
+    </command>
+    <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha" depthstencil="depth" psdefines="HWDEPTH">
+        <texture unit="depth" name="depth" />
+    </command>
+    <command type="scenepass" pass="postalpha" sort="backtofront" depthstencil="depth" />
+
+<!-- FXAA3 -->
+    <command type="quad" tag="FXAA3" vs="FXAA3" ps="FXAA3" psdefines="FXAA_QUALITY_PRESET=12" output="viewport">
+        <texture unit="diffuse" name="viewport" />
+    </command>
+
+<!-- Bloom -->
+	<rendertarget name="BlurV" tag="Bloom" sizedivisor="4 4" format="rgb" filter="true" />
+	<rendertarget name="BlurH" tag="Bloom" sizedivisor="4 4" format="rgb" filter="true" />
+	<command type="quad" tag="Bloom" vs="Bloom" ps="Bloom" psdefines="BRIGHT" output="BlurV">
+		<parameter name="BloomThreshold" value="0.3" />
+		<texture unit="diffuse" name="viewport" />
+	</command>
+	<command type="quad" tag="Bloom" vs="Bloom" ps="Bloom" psdefines="BLURH" output="BlurH">
+		<texture unit="diffuse" name="BlurV" />
+	</command>
+	<command type="quad" tag="Bloom" vs="Bloom" ps="Bloom" psdefines="BLURV" output="BlurV">
+		<texture unit="diffuse" name="BlurH" />
+	</command>
+	<command type="quad" tag="Bloom" vs="Bloom" ps="Bloom" psdefines="COMBINE" output="viewport">
+		<parameter name="BloomMix" value="0.9 0.4" />
+		<texture unit="diffuse" name="viewport" />
+		<texture unit="normal" name="BlurV" />
+	</command>
+
+<!-- Gamma correction -->
+    <command type="quad" tag="GammaCorrection" vs="GammaCorrection" ps="GammaCorrection" output="viewport">
+        <texture unit="diffuse" name="viewport" />
+    </command>
+</renderpath>
