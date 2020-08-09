@@ -1,6 +1,6 @@
 <material>
 	<technique name="Techniques/PBR/PBRDiff.xml" />
-	<texture unit="diffuse" name="ftm/textures/material_baseColor_1.png" />
+	<texture unit="diffuse" name="ftm/textures/material_baseColor_1.dds" />
 	<parameter name="MatEmissiveColor" value="0 0 0 1" />
 	<parameter name="MatDiffColor" value="1 1 1 1" />
 	<parameter name="MatEnvMapColor" value="1 1 1 1" />

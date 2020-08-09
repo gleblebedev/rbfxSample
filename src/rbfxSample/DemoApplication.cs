@@ -12,6 +12,8 @@ namespace rbfxSample
         private Scene _scene;
         private Viewport _viewport;
         private Node _camera;
+
+        private CharacterController _characterController;
         //private Node _cube;
         //private Node _light;
 
@@ -56,6 +58,9 @@ namespace rbfxSample
             // Viewport
             _scene = new Scene(Context);
             _scene.LoadFile("Scenes/SampleScene.xml");
+
+            var character = _scene.GetChild("character");
+            //_characterController = character.CreateComponent<CharacterController>();
 
             _camera = _scene.GetChild("Main Camera", true);
             _viewport = new Viewport(Context);
