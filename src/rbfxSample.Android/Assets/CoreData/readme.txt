@@ -1,0 +1,1 @@
+﻿CoreData folder.
