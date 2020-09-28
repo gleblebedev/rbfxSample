@@ -49,7 +49,7 @@ namespace rbfxSample
                 var options = new ApplicationOptions();
                 //var assets = Android.OS.Environment.ExternalStorageDirectory.ToString();
                 //options.EpResourcePrefixPaths = assets+";"+ assets+"/Assets";
-                using (var application = new TestApp(context, options))
+                using (var application = new DemoApplication(context, options))
                 {
                     return application.Run();
                 }

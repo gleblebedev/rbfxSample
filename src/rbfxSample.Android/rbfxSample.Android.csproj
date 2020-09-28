@@ -65,11 +65,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationOptions.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestApp.cs" />
     <Compile Include="Urho3DInterop.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +121,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Data\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rbfxSample.Shared\rbfxSample.Shared.csproj">
+      <Project>{914EE76E-17B2-4D98-A083-75D04549AA1A}</Project>
+      <Name>rbfxSample.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

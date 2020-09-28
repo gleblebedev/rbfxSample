@@ -1,10 +1,11 @@
-﻿using Android.Provider;
+﻿using System.Diagnostics;
+using System.IO;
 using ImGuiNet;
 using Urho3DNet;
 
 namespace rbfxSample
 {
-    class TestApp : Urho3DNet.Application
+    public class DemoApplication : Application
     {
         private readonly ApplicationOptions _options;
         private Scene _scene;
@@ -19,31 +20,36 @@ namespace rbfxSample
         //private Node _cube;
         //private Node _light;
 
-        public TestApp(Context context, ApplicationOptions options) : base(context)
+        public DemoApplication(Context context, ApplicationOptions options) : base(context)
         {
             _options = options;
-            foreach (var attribute in context.AllAttributes)
-            {
-                System.Diagnostics.Debug.WriteLine(attribute.Key+" = "+attribute.Value);
-            }
-        }
-
-        public override void Setup()
-        {
-            if (!string.IsNullOrWhiteSpace(_options.EpResourcePrefixPaths))
-                engineParameters_[Urho3D.EpResourcePrefixPaths] = _options.EpResourcePrefixPaths;
-            base.Setup();
         }
 
         protected override void Dispose(bool disposing)
         {
             Context.Renderer.SetViewport(0, null);    // Enable disposal of viewport by making it unreferenced by engine.
-            _viewport?.Dispose();
-            _scene?.Dispose();
-            _camera?.Dispose();
+            _viewport.Dispose();
+            _scene.Dispose();
+            _camera.Dispose();
             //_cube.Dispose();
             //_light.Dispose();
             base.Dispose(disposing);
+        }
+
+        public override void Setup()
+        {
+            engineParameters_[Urho3D.EpFullScreen] = !_options.Windowed;
+            if (_options.Windowed)
+            {
+                engineParameters_[Urho3D.EpWindowResizable] = true;
+            }
+            if (_options.Width.HasValue)
+                engineParameters_[Urho3D.EpWindowWidth] = _options.Width.Value;
+            if (_options.Height.HasValue)
+            engineParameters_[Urho3D.EpWindowHeight] = _options.Height.Value;
+            engineParameters_[Urho3D.EpWindowTitle] = "Urho3D/rbfx sample";
+            engineParameters_[Urho3D.EpHighDpi] = _options.HighDpi;
+            engineParameters_[Urho3D.EpRenderPath] = _options.RenderPath;
         }
 
         public override void Start()
@@ -80,7 +86,7 @@ namespace rbfxSample
             SubscribeToEvent(E.Update, args =>
             {
                 var timestep = args[E.Update.TimeStep].Float;
-                //Debug.Assert(this != null);
+                Debug.Assert(this != null);
 
                 if (ImGui.Begin("Urho3D.NET"))
                 {
@@ -97,20 +103,6 @@ namespace rbfxSample
                     Context.Engine.Exit();
                 }
             });
-        }
-    }
-    [ObjectFactory]
-    class RotateObject : LogicComponent
-    {
-        public RotateObject(Context context) : base(context)
-        {
-            UpdateEventMask = UpdateEvent.UseUpdate;
-        }
-
-        public override void Update(float timeStep)
-        {
-            var d = new Quaternion(0, 20 * timeStep, 0);
-            Node.Rotate(d);
         }
     }
 }

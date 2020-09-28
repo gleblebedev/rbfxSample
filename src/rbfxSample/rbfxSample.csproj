@@ -25,4 +25,9 @@
     <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.106" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\rbfxSample.Shared\rbfxSample.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
