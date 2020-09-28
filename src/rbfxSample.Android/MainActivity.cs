@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
 using Java.Lang;
 using Org.Libsdl.App;
 using Urho3DNet;
@@ -34,6 +35,12 @@ namespace rbfxSample
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
         }
 
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
         private int SdlMain(int n, IntPtr v)
         {
             Trace.WriteLine("MainActivity.SDLMain()");
