@@ -1,12 +1,42 @@
 ﻿using Foundation;
 using UIKit;
+using System.Threading.Tasks;
+using Urho3DNet;
 
 namespace rbfxSample.iOS
 {
+    [Register("AppDelegate")]
+    public class AppDelegate : UIResponder, IUIApplicationDelegate
+    {
+        [Export("application:didFinishLaunchingWithOptions:")]
+        public bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            ObjCRuntime.Dlfcn.dlopen("libUrho3D.dylib",0);
+            // Override point for customization after application launch.
+            // If not required for your application you can safely delete this method
+            LaunchGame();
+            return true;
+        }
+
+
+        async void LaunchGame()
+        {
+            await Task.Yield();
+            using (var context = new Context())
+            {
+                using (var app = new DemoApplication(context, new ApplicationOptions()))
+                {
+                    app.Run();
+                }
+            }
+
+        }
+    }
+
     // The UIApplicationDelegate for the application. This class is responsible for launching the
     // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
-    [Register ("AppDelegate")]
-    public class AppDelegate : UIResponder, IUIApplicationDelegate {
+    //[Register ("AppDelegate")]
+    public class AppDelegate_ : UIResponder, IUIApplicationDelegate {
     
         [Export("window")]
         public UIWindow Window { get; set; }
