@@ -15,7 +15,7 @@ jobs:
   - task: NuGetCommand@2
     inputs:
       command: 'restore'
-      restoreSolution: '$(Agent.BuildDirectory)/s/src/rbfxSample.sln'
+      restoreSolution: '$(Agent.BuildDirectory)/s/src/rbfxSample.Desktop.sln'
       feedsToUse: 'select'
       vstsFeed: '$(VstsFeed)'
       includeNuGetOrg: true
@@ -23,7 +23,7 @@ jobs:
   - task: MSBuild@1
     displayName: 'Build game'
     inputs:
-      solution: '$(Agent.BuildDirectory)/s/src/rbfxSample.sln' 
+      solution: '$(Agent.BuildDirectory)/s/src/rbfxSample.Desktop.sln'
       configuration: release
 
   - task: Bash@3
