@@ -2,6 +2,9 @@
 using UIKit;
 using System.Threading.Tasks;
 using Urho3DNet;
+using System.Runtime.InteropServices;
+using System;
+using ObjCRuntime;
 
 namespace rbfxSample.iOS
 {
@@ -28,6 +31,8 @@ namespace rbfxSample.iOS
             }
 
         }
+
+
     }
 }
 

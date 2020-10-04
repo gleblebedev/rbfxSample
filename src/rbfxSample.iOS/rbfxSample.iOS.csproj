@@ -49,6 +49,7 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
+    <MtouchLink>Full</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -73,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="unofficial.Urho3DNet">
-      <Version>0.3.7.128</Version>
+      <Version>0.3.7.138</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
@@ -127,12 +128,366 @@
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="..\..\content\Data\**">
-      <Link>Resources\Data/%(RecursiveDir)%(FileName)%(Extension)</Link>
-    </BundleResource>
     <AndroidAsset Include="Assets\CoreData\readme.txt" />
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <BundleResource Include="..\..\content\Data\Textures\StoneNormal.dds">
+      <Link>Resources\Data\Textures\StoneNormal.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Textures\StoneDiffuse.dds">
+      <Link>Resources\Data\Textures\StoneDiffuse.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\madera_baseColor_4.dds">
+      <Link>Resources\Data\ftm\textures\madera_baseColor_4.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\piedras_baseColor_3.xml">
+      <Link>Resources\Data\ftm\textures\piedras_baseColor_3.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\tree_leaves_baseColor_6.dds">
+      <Link>Resources\Data\ftm\textures\tree_leaves_baseColor_6.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\ground_baseColor_2.xml">
+      <Link>Resources\Data\ftm\textures\ground_baseColor_2.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\roof_baseColor_0.xml">
+      <Link>Resources\Data\ftm\textures\roof_baseColor_0.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\material_baseColor_1.xml">
+      <Link>Resources\Data\ftm\textures\material_baseColor_1.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\madera_baseColor_4.xml">
+      <Link>Resources\Data\ftm\textures\madera_baseColor_4.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\piedras_baseColor_3.dds">
+      <Link>Resources\Data\ftm\textures\piedras_baseColor_3.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\material_baseColor_1.dds">
+      <Link>Resources\Data\ftm\textures\material_baseColor_1.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\ground_baseColor_2.dds">
+      <Link>Resources\Data\ftm\textures\ground_baseColor_2.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\tree_leaves_baseColor_6.xml">
+      <Link>Resources\Data\ftm\textures\tree_leaves_baseColor_6.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\textures\roof_baseColor_0.dds">
+      <Link>Resources\Data\ftm\textures\roof_baseColor_0.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\outline_3.xml">
+      <Link>Resources\Data\ftm\materials\outline_3.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\ground_9.xml">
+      <Link>Resources\Data\ftm\materials\ground_9.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\roof_7.xml">
+      <Link>Resources\Data\ftm\materials\roof_7.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\monster_001_2.xml">
+      <Link>Resources\Data\ftm\materials\monster_001_2.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\madera_6.xml">
+      <Link>Resources\Data\ftm\materials\madera_6.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\material_4.xml">
+      <Link>Resources\Data\ftm\materials\material_4.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\tree_leaves_8.xml">
+      <Link>Resources\Data\ftm\materials\tree_leaves_8.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\eyes002_0.xml">
+      <Link>Resources\Data\ftm\materials\eyes002_0.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\piedras_5.xml">
+      <Link>Resources\Data\ftm\materials\piedras_5.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\materials\monster_1.xml">
+      <Link>Resources\Data\ftm\materials\monster_1.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\ground_0_2_0\ground_0_2_0.mdl">
+      <Link>Resources\Data\ftm\meshes\ground_0_2_0\ground_0_2_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\outline_0_9_0\outline_0_9_0.mdl">
+      <Link>Resources\Data\ftm\meshes\outline_0_9_0\outline_0_9_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\monster 001_0_10_0\monster 001_0_10_0.mdl">
+      <Link>Resources\Data\ftm\meshes\monster 001_0_10_0\monster 001_0_10_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\dec_0_8_0\dec_0_8_0.mdl">
+      <Link>Resources\Data\ftm\meshes\dec_0_8_0\dec_0_8_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\monster_0_11_0\monster_0_11_0.mdl">
+      <Link>Resources\Data\ftm\meshes\monster_0_11_0\monster_0_11_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\roof_0_5_0\roof_0_5_0.mdl">
+      <Link>Resources\Data\ftm\meshes\roof_0_5_0\roof_0_5_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\tree leaves inv_0_4_0\tree leaves inv_0_4_0.mdl">
+      <Link>Resources\Data\ftm\meshes\tree leaves inv_0_4_0\tree leaves inv_0_4_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\madera_0_6_0\madera_0_6_0.mdl">
+      <Link>Resources\Data\ftm\meshes\madera_0_6_0\madera_0_6_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\piedras_0_7_0\piedras_0_7_0.mdl">
+      <Link>Resources\Data\ftm\meshes\piedras_0_7_0\piedras_0_7_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\eyes002_0_12_0\eyes002_0_12_0.mdl">
+      <Link>Resources\Data\ftm\meshes\eyes002_0_12_0\eyes002_0_12_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\character_0_0_0\character_0_0_0.mdl">
+      <Link>Resources\Data\ftm\meshes\character_0_0_0\character_0_0_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\ftm\meshes\tree leaves_0_3_0\tree leaves_0_3_0.mdl">
+      <Link>Resources\Data\ftm\meshes\tree leaves_0_3_0\tree leaves_0_3_0.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Scenes\SampleScene.xml">
+      <Link>Resources\Data\Scenes\SampleScene.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Scenes\SampleScene\ReflectionProbe-0.xml">
+      <Link>Resources\Data\Scenes\SampleScene\ReflectionProbe-0.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Scenes\SampleScene\NavMesh.mdl">
+      <Link>Resources\Data\Scenes\SampleScene\NavMesh.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Scenes\SampleScene\ReflectionProbe-0.dds">
+      <Link>Resources\Data\Scenes\SampleScene\ReflectionProbe-0.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Resources\unity_builtin_extra\Default-Material.xml">
+      <Link>Resources\Data\Resources\unity_builtin_extra\Default-Material.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Resources\unity_builtin_extra\Default-Skybox-Map.xml">
+      <Link>Resources\Data\Resources\unity_builtin_extra\Default-Skybox-Map.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Resources\unity_builtin_extra\Default-Skybox-Map.dds">
+      <Link>Resources\Data\Resources\unity_builtin_extra\Default-Skybox-Map.dds</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Resources\unity_builtin_extra\Default-Skybox.xml">
+      <Link>Resources\Data\Resources\unity_builtin_extra\Default-Skybox.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Library\unity default resources\Cube.mdl">
+      <Link>Resources\Data\Library\unity default resources\Cube.mdl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\RenderPaths\ForwardDepth.xml">
+      <Link>Resources\Data\RenderPaths\ForwardDepth.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\RenderPaths\ForwardHWDepth.xml">
+      <Link>Resources\Data\RenderPaths\ForwardHWDepth.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\PBRVegetation.glsl">
+      <Link>Resources\Data\Shaders\GLSL\PBRVegetation.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\Skybox.glsl">
+      <Link>Resources\Data\Shaders\GLSL\Skybox.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\BRDF.glsl">
+      <Link>Resources\Data\Shaders\GLSL\BRDF.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\VegetationShadow.glsl">
+      <Link>Resources\Data\Shaders\GLSL\VegetationShadow.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\PBRLitSolid.glsl">
+      <Link>Resources\Data\Shaders\GLSL\PBRLitSolid.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\TerrainBlend.glsl">
+      <Link>Resources\Data\Shaders\GLSL\TerrainBlend.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\PBRTerrainBlend.glsl">
+      <Link>Resources\Data\Shaders\GLSL\PBRTerrainBlend.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\PBRWater.glsl">
+      <Link>Resources\Data\Shaders\GLSL\PBRWater.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\VegetationDepth.glsl">
+      <Link>Resources\Data\Shaders\GLSL\VegetationDepth.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\GLSL\Vegetation.glsl">
+      <Link>Resources\Data\Shaders\GLSL\Vegetation.glsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\PBRLitSolid.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\PBRLitSolid.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\VegetationShadow.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\VegetationShadow.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\Skybox.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\Skybox.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\PBRVegetation.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\PBRVegetation.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\BRDF.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\BRDF.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\Vegetation.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\Vegetation.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\VegetationDepth.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\VegetationDepth.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\PBRTerrainBlend.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\PBRTerrainBlend.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Shaders\HLSL\PBRWater.hlsl">
+      <Link>Resources\Data\Shaders\HLSL\PBRWater.hlsl</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\PostProcess\GammaCorrection.xml">
+      <Link>Resources\Data\PostProcess\GammaCorrection.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRVegetationDiff.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRVegetationDiff.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffNormalAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffNormalAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiff.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiff.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughNormalSpec.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughNormalSpec.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughSpecAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughSpecAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBREmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBREmissive.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNormalEmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNormalEmissive.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNoTexture.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNoTexture.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughSpecAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughSpecAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffNormalEmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffNormalEmissive.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNormalAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNormalAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNormal.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNormal.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNormalEmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNormalEmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffNormalAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffNormalAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffSpec.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffSpec.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpec.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpec.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRWater.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRWater.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughNormalSpecAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughNormalSpecAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughSpecAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughSpecAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughSpec.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughSpec.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffSpecEmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffSpecEmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissive.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNoTextureAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNoTextureAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughNormalSpecAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughNormalSpecAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffSpecAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffSpecAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughNormalSpecEmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughNormalSpecEmissive.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffSpecAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffSpecAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffNormalAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffNormalAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNormalAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNormalAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRVegetationMetallicRoughDiffSpec.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRVegetationMetallicRoughDiffSpec.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughSpecEmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughSpecEmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffEmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffEmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffNormalEmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffNormalEmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughNormalSpecAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughNormalSpecAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBREmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBREmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughNormalSpecEmissiveAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughNormalSpecEmissiveAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffNormal.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffNormal.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffSpecAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffSpecAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRTerrainBlend.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRTerrainBlend.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRNormalAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRNormalAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughDiffSpecEmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughDiffSpecEmissive.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRAOAlpha.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRAOAlpha.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRMetallicRoughSpecEmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRMetallicRoughSpecEmissive.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRAO.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRAO.xml</Link>
+    </BundleResource>
+    <BundleResource Include="..\..\content\Data\Techniques\PBR\PBRDiffEmissive.xml">
+      <Link>Resources\Data\Techniques\PBR\PBRDiffEmissive.xml</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\rbfxSample.Shared\ApplicationOptions.cs">
