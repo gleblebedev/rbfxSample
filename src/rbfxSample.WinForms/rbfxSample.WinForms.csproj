@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +37,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +50,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Urho3DNet, Version=0.3.7.146, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\unofficial.Urho3DNet.0.3.7.146\lib\net47\Urho3DNet.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow.cs">
@@ -63,6 +72,63 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CoreData\Models\Box.mdl" />
+    <None Include="CoreData\Models\Cone.mdl" />
+    <None Include="CoreData\Models\Cylinder.mdl" />
+    <None Include="CoreData\Models\Dome.mdl" />
+    <None Include="CoreData\Models\Plane.mdl" />
+    <None Include="CoreData\Models\Pyramid.mdl" />
+    <None Include="CoreData\Models\Sphere.mdl" />
+    <None Include="CoreData\Models\TeaPot.mdl" />
+    <None Include="CoreData\Models\Torus.mdl" />
+    <None Include="CoreData\Shaders\GLSL\AutoExposure.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Basic.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Bloom.glsl" />
+    <None Include="CoreData\Shaders\GLSL\BloomHDR.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Blur.glsl" />
+    <None Include="CoreData\Shaders\GLSL\BRDF.glsl" />
+    <None Include="CoreData\Shaders\GLSL\ColorCorrection.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Constants.glsl" />
+    <None Include="CoreData\Shaders\GLSL\CopyFramebuffer.glsl" />
+    <None Include="CoreData\Shaders\GLSL\DeferredLight.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Depth.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Fog.glsl" />
+    <None Include="CoreData\Shaders\GLSL\FXAA2.glsl" />
+    <None Include="CoreData\Shaders\GLSL\FXAA3.glsl" />
+    <None Include="CoreData\Shaders\GLSL\GammaCorrection.glsl" />
+    <None Include="CoreData\Shaders\GLSL\GreyScale.glsl" />
+    <None Include="CoreData\Shaders\GLSL\IBL.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Lighting.glsl" />
+    <None Include="CoreData\Shaders\GLSL\LightmapBaker.glsl" />
+    <None Include="CoreData\Shaders\GLSL\LitParticle.glsl" />
+    <None Include="CoreData\Shaders\GLSL\LitSolid.glsl" />
+    <None Include="CoreData\Shaders\GLSL\PBR.glsl" />
+    <None Include="CoreData\Shaders\GLSL\PBRDeferred.glsl" />
+    <None Include="CoreData\Shaders\GLSL\PBRLitSolid.glsl" />
+    <None Include="CoreData\Shaders\GLSL\PBRTerrainBlend.glsl" />
+    <None Include="CoreData\Shaders\GLSL\PBRVegetation.glsl" />
+    <None Include="CoreData\Shaders\GLSL\PostProcess.glsl" />
+    <None Include="CoreData\Shaders\GLSL\PrepassLight.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Samplers.glsl" />
+    <None Include="CoreData\Shaders\GLSL\ScreenPos.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Shadow.glsl" />
+    <None Include="CoreData\Shaders\GLSL\ShadowBlur.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Skybox.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Skydome.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Stencil.glsl" />
+    <None Include="CoreData\Shaders\GLSL\TerrainBlend.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Text.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Tonemap.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Transform.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Uniforms.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Unlit.glsl" />
+    <None Include="CoreData\Shaders\GLSL\UnlitParticle.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Urho2D.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Vegetation.glsl" />
+    <None Include="CoreData\Shaders\GLSL\VegetationDepth.glsl" />
+    <None Include="CoreData\Shaders\GLSL\VegetationShadow.glsl" />
+    <None Include="CoreData\Shaders\GLSL\Water.glsl" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,5 +148,233 @@
       <Name>rbfxSample.Shared</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="CoreData\Materials\DefaultGrey.xml" />
+    <Content Include="CoreData\Materials\LightmapBaker.xml" />
+    <Content Include="CoreData\Models\Box.xml" />
+    <Content Include="CoreData\Models\Plane.xml" />
+    <Content Include="CoreData\Models\Sphere.xml" />
+    <Content Include="CoreData\PostProcess\AutoExposure.xml" />
+    <Content Include="CoreData\PostProcess\Bloom.xml" />
+    <Content Include="CoreData\PostProcess\BloomHDR.xml" />
+    <Content Include="CoreData\PostProcess\Blur.xml" />
+    <Content Include="CoreData\PostProcess\ColorCorrection.xml" />
+    <Content Include="CoreData\PostProcess\FXAA2.xml" />
+    <Content Include="CoreData\PostProcess\FXAA3.xml" />
+    <Content Include="CoreData\PostProcess\GammaCorrection.xml" />
+    <Content Include="CoreData\PostProcess\GreyScale.xml" />
+    <Content Include="CoreData\PostProcess\Tonemap.xml" />
+    <Content Include="CoreData\RenderPaths\Deferred.xml" />
+    <Content Include="CoreData\RenderPaths\DeferredHWDepth.xml" />
+    <Content Include="CoreData\RenderPaths\Forward.xml" />
+    <Content Include="CoreData\RenderPaths\ForwardDepth.xml" />
+    <Content Include="CoreData\RenderPaths\ForwardHWDepth.xml" />
+    <Content Include="CoreData\RenderPaths\LightmapGBuffer.xml" />
+    <Content Include="CoreData\RenderPaths\PBRDeferred.xml" />
+    <Content Include="CoreData\RenderPaths\PBRDeferredHWDepth.xml" />
+    <Content Include="CoreData\RenderPaths\Prepass.xml" />
+    <Content Include="CoreData\RenderPaths\PrepassHDR.xml" />
+    <Content Include="CoreData\RenderPaths\PrepassHWDepth.xml" />
+    <Content Include="CoreData\Shaders\HLSL\AutoExposure.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Basic.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Bloom.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\BloomHDR.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Blur.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\BRDF.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\ClearFramebuffer.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\ColorCorrection.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Constants.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\CopyFramebuffer.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\DeferredLight.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Depth.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Fog.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\FXAA2.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\FXAA3.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\GammaCorrection.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\GreyScale.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\IBL.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Lighting.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\LightmapBaker.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\LitParticle.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\LitSolid.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\PBR.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\PBRDeferred.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\PBRLitSolid.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\PBRTerrainBlend.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\PBRVegetation.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\PostProcess.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\PrepassLight.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Samplers.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\ScreenPos.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Shadow.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\ShadowBlur.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Skybox.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Skydome.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Stencil.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\TerrainBlend.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Text.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Tonemap.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Transform.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Uniforms.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Unlit.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\UnlitParticle.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Urho2D.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Vegetation.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\VegetationDepth.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\VegetationShadow.hlsl" />
+    <Content Include="CoreData\Shaders\HLSL\Water.hlsl" />
+    <Content Include="CoreData\Techniques\BasicVColUnlitAlpha.xml" />
+    <Content Include="CoreData\Techniques\Diff.xml" />
+    <Content Include="CoreData\Techniques\DiffAdd.xml" />
+    <Content Include="CoreData\Techniques\DiffAddAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffAlphaTranslucent.xml" />
+    <Content Include="CoreData\Techniques\DiffAO.xml" />
+    <Content Include="CoreData\Techniques\DiffAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffEmissive.xml" />
+    <Content Include="CoreData\Techniques\DiffEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffEnvCube.xml" />
+    <Content Include="CoreData\Techniques\DiffEnvCubeAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffEnvCubeAO.xml" />
+    <Content Include="CoreData\Techniques\DiffEnvCubeAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffLightMap.xml" />
+    <Content Include="CoreData\Techniques\DiffLightMapAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffLitParticleAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffLitParticleAlphaSoft.xml" />
+    <Content Include="CoreData\Techniques\DiffLitParticleAlphaSoftExpand.xml" />
+    <Content Include="CoreData\Techniques\DiffMultiply.xml" />
+    <Content Include="CoreData\Techniques\DiffNormal.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalAlphaTranslucent.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalAO.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalEmissive.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalEnvCube.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalEnvCubeAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalSpec.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalSpecAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalSpecAO.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalSpecAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalSpecEmissive.xml" />
+    <Content Include="CoreData\Techniques\DiffNormalSpecEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffOverlay.xml" />
+    <Content Include="CoreData\Techniques\DiffSkybox.xml" />
+    <Content Include="CoreData\Techniques\DiffSkyboxHDRScale.xml" />
+    <Content Include="CoreData\Techniques\DiffSkydome.xml" />
+    <Content Include="CoreData\Techniques\DiffSkyplane.xml" />
+    <Content Include="CoreData\Techniques\DiffSpec.xml" />
+    <Content Include="CoreData\Techniques\DiffSpecAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlit.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlitAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlitParticleAdd.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlitParticleAddSoft.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlitParticleAddSoftExpand.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlitParticleAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlitParticleAlphaSoft.xml" />
+    <Content Include="CoreData\Techniques\DiffUnlitParticleAlphaSoftExpand.xml" />
+    <Content Include="CoreData\Techniques\DiffVCol.xml" />
+    <Content Include="CoreData\Techniques\DiffVColAdd.xml" />
+    <Content Include="CoreData\Techniques\DiffVColAddAlpha.xml" />
+    <Content Include="CoreData\Techniques\DiffVColMultiply.xml" />
+    <Content Include="CoreData\Techniques\DiffVColUnlitAlpha.xml" />
+    <Content Include="CoreData\Techniques\LightmapBaker.xml" />
+    <Content Include="CoreData\Techniques\NoTexture.xml" />
+    <Content Include="CoreData\Techniques\NoTextureAdd.xml" />
+    <Content Include="CoreData\Techniques\NoTextureAddAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureAO.xml" />
+    <Content Include="CoreData\Techniques\NoTextureAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureEnvCube.xml" />
+    <Content Include="CoreData\Techniques\NoTextureEnvCubeAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureEnvCubeAO.xml" />
+    <Content Include="CoreData\Techniques\NoTextureEnvCubeAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureMultiply.xml" />
+    <Content Include="CoreData\Techniques\NoTextureNormal.xml" />
+    <Content Include="CoreData\Techniques\NoTextureNormalAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureOverlay.xml" />
+    <Content Include="CoreData\Techniques\NoTextureUnlit.xml" />
+    <Content Include="CoreData\Techniques\NoTextureUnlitAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureUnlitVCol.xml" />
+    <Content Include="CoreData\Techniques\NoTextureVCol.xml" />
+    <Content Include="CoreData\Techniques\NoTextureVColAdd.xml" />
+    <Content Include="CoreData\Techniques\NoTextureVColAddAlpha.xml" />
+    <Content Include="CoreData\Techniques\NoTextureVColMultiply.xml" />
+    <Content Include="CoreData\Techniques\PBR\DiffNormalSpecEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\DiffNormalSpecEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiff.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffNormal.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffNormalAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffNormalAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffNormalAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffNormalEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRDiffNormalEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBREmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBREmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpec.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffNormalSpecEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffSpec.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffSpecAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffSpecAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffSpecAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffSpecEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughDiffSpecEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughNormalSpec.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughNormalSpecAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughNormalSpecAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughNormalSpecAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughNormalSpecEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughNormalSpecEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughSpec.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughSpecAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughSpecAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughSpecAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughSpecEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRMetallicRoughSpecEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNormal.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNormalAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNormalAO.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNormalAOAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNormalEmissive.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNormalEmissiveAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNoTexture.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRNoTextureAlpha.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRTerrainBlend.xml" />
+    <Content Include="CoreData\Techniques\PBR\PBRVegetationDiff.xml" />
+    <Content Include="CoreData\Techniques\TerrainBlend.xml" />
+    <Content Include="CoreData\Techniques\VegetationDiff.xml" />
+    <Content Include="CoreData\Techniques\VegetationDiffUnlit.xml" />
+    <Content Include="CoreData\Techniques\Water.xml" />
+    <Content Include="CoreData\Textures\LUTIdentity.png" />
+    <Content Include="CoreData\Textures\LUTIdentity.xml" />
+    <Content Include="CoreData\Textures\Ramp.png" />
+    <Content Include="CoreData\Textures\Ramp.xml" />
+    <Content Include="CoreData\Textures\RampExtreme.png" />
+    <Content Include="CoreData\Textures\RampExtreme.xml" />
+    <Content Include="CoreData\Textures\RampWide.png" />
+    <Content Include="CoreData\Textures\RampWide.xml" />
+    <Content Include="CoreData\Textures\Spot.png" />
+    <Content Include="CoreData\Textures\Spot.xml" />
+    <Content Include="CoreData\Textures\SpotWide.png" />
+    <Content Include="CoreData\Textures\SpotWide.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\unofficial.Urho3DNet.0.3.7.146\build\net40\unofficial.Urho3DNet.targets" Condition="Exists('..\packages\unofficial.Urho3DNet.0.3.7.146\build\net40\unofficial.Urho3DNet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\unofficial.Urho3DNet.0.3.7.146\build\net40\unofficial.Urho3DNet.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\unofficial.Urho3DNet.0.3.7.146\build\net40\unofficial.Urho3DNet.targets'))" />
+  </Target>
 </Project>
