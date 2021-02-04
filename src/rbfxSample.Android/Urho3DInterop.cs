@@ -5,8 +5,6 @@ namespace rbfxSample
 {
     public static class Urho3DInterop
     {
-        public delegate void ExceptionDelegate(string message);
-
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int SdlCallback(int argn, IntPtr argv);
 

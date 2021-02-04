@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Urho3DNet;
 
 namespace rbfxSample.WinForms
 {
@@ -15,6 +16,14 @@ namespace rbfxSample.WinForms
         public MainWindow()
         {
             InitializeComponent();
+
+            //using (var context = new Context())
+            //{
+            //    using (var application = new DemoApplication(context, new ApplicationOptions()))
+            //    {
+            //        application.Run();
+            //    }
+            //}
         }
     }
 }

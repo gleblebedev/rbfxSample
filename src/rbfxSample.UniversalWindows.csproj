@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net471</TargetFramework>
+    <TargetFrameworks>uap10.0.18362</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
@@ -19,20 +19,22 @@
     <Content Remove="..\..\content\Data\Textures\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Package.appxmanifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
-    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.194" />
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.192" />
   </ItemGroup>
-
 
   <ItemGroup>
     <ProjectReference Include="..\rbfxSample.Shared\rbfxSample.Shared.csproj" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
 </Project>

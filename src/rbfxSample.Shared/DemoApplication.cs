@@ -28,9 +28,9 @@ namespace rbfxSample
         protected override void Dispose(bool disposing)
         {
             Context.Renderer.SetViewport(0, null);    // Enable disposal of viewport by making it unreferenced by engine.
-            _viewport.Dispose();
-            _scene.Dispose();
-            _camera.Dispose();
+            _viewport?.Dispose();
+            _scene?.Dispose();
+            _camera?.Dispose();
             //_cube.Dispose();
             //_light.Dispose();
             base.Dispose(disposing);
@@ -55,6 +55,19 @@ namespace rbfxSample
         public override void Start()
         {
             Context.Input.SetMouseVisible(true);
+            Context.Engine.CreateDebugHud().Mode = DebugHudMode.DebughudShowAll;
+
+            //Context.Renderer.DefaultZone.FogColor = new Color(1,0,0,1);
+            //_scene = new Scene(Context);
+            //_scene.CreateComponent<Octree>();
+            //var z = _scene.CreateComponent<Zone>();
+            //z.FogColor = new Color(0, 1, 0, 1);
+            //_camera = _scene.CreateChild();
+            //_viewport = new Viewport(Context, _scene, _camera.CreateComponent<Camera>());
+            //_viewport.DrawDebug = true;
+            //Context.Renderer.SetViewport(0, _viewport);
+            //return;
+
 
             // Viewport
             _scene = new Scene(Context);

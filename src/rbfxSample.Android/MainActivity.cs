@@ -7,6 +7,8 @@ using Android.Runtime;
 using Java.Lang;
 using Org.Libsdl.App;
 using Urho3DNet;
+using Application = Urho3DNet.Application;
+using Context = Android.Content.Context;
 using Exception = Java.Lang.Exception;
 using Trace=System.Diagnostics.Trace;
 
