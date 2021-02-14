@@ -12,11 +12,6 @@ namespace rbfxSample
         private Viewport _viewport;
         private Node _camera;
 
-        private KinematicCharacterController _characterController;
-
-        private RigidBody _body;
-
-        private CollisionShape _shape;
         //private Node _cube;
         //private Node _light;
 
@@ -38,18 +33,18 @@ namespace rbfxSample
 
         public override void Setup()
         {
-            engineParameters_[Urho3D.EpFullScreen] = !_options.Windowed;
+            EngineParameters[Urho3D.EpFullScreen] = !_options.Windowed;
             if (_options.Windowed)
             {
-                engineParameters_[Urho3D.EpWindowResizable] = true;
+                EngineParameters[Urho3D.EpWindowResizable] = true;
             }
             if (_options.Width.HasValue)
-                engineParameters_[Urho3D.EpWindowWidth] = _options.Width.Value;
+                EngineParameters[Urho3D.EpWindowWidth] = _options.Width.Value;
             if (_options.Height.HasValue)
-            engineParameters_[Urho3D.EpWindowHeight] = _options.Height.Value;
-            engineParameters_[Urho3D.EpWindowTitle] = "Urho3D/rbfx sample";
-            engineParameters_[Urho3D.EpHighDpi] = _options.HighDpi;
-            engineParameters_[Urho3D.EpRenderPath] = _options.RenderPath;
+                EngineParameters[Urho3D.EpWindowHeight] = _options.Height.Value;
+            EngineParameters[Urho3D.EpWindowTitle] = "Urho3D/rbfx sample";
+            EngineParameters[Urho3D.EpHighDpi] = _options.HighDpi;
+            EngineParameters[Urho3D.EpRenderPath] = _options.RenderPath;
         }
 
         public override void Start()
@@ -72,20 +67,6 @@ namespace rbfxSample
             // Viewport
             _scene = new Scene(Context);
             _scene.LoadFile("Scenes/SampleScene.xml");
-            _scene.CreateComponent<PhysicsWorld>();
-
-            var character = _scene.GetChild("character");
-            _body = character.CreateComponent<RigidBody>();
-            _body.CollisionLayer = 1u;
-            _body.SetKinematic(true);
-            _body.SetTrigger(true);
-            _body.SetAngularFactor(Vector3.Zero);
-            _body.CollisionEventMode = CollisionEventMode.CollisionAlways;
-
-            _shape = character.CreateComponent<CollisionShape>();
-            _shape.SetCapsule(0.7f, 1.8f, new Vector3(0.0f, 0.9f, 0.0f));
-
-            _characterController = character.CreateComponent<KinematicCharacterController>();
 
             _camera = _scene.GetChild("Main Camera", true);
             _viewport = new Viewport(Context);
