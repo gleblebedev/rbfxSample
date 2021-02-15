@@ -8,6 +8,9 @@ namespace rbfxSample.iOS
 {
     public class Application
     {
+        static Urho3DNet.Context _context;
+        static DemoApplication _application;
+
         // This is the main entry point of the application.
         static void Main(string[] args)
         {
@@ -15,20 +18,24 @@ namespace rbfxSample.iOS
             // you can specify it here.
             //UIApplication.Main(args, null, "AppDelegate");
             SDL_UIKitRunApp(0, IntPtr.Zero, SdlMain);
+
+            _application.Dispose();
+
+            _context.Dispose();
         }
 
         [MonoPInvokeCallback(typeof(SdlCallback))]
         public static int SdlMain(int argn, IntPtr argv)
         {
             Trace.WriteLine("MainActivity.SDLMain()");
-            using (var context = new Urho3DNet.Context())
+            _context = new Urho3DNet.Context();
             {
                 var options = new ApplicationOptions();
                 //var assets = Android.OS.Environment.ExternalStorageDirectory.ToString();
                 //options.EpResourcePrefixPaths = assets+";"+ assets+"/Assets";
-                using (var application = new DemoApplication(context, options))
+                _application = new DemoApplication(_context, options);
                 {
-                    return application.Run();
+                    return _application.Run();
                 }
             }
         }
