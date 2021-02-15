@@ -8,10 +8,10 @@ using ObjCRuntime;
 
 namespace rbfxSample.iOS
 {
-    [Register("AppDelegate")]
+    //[Register("AppDelegate")]
     public class AppDelegate : UIResponder, IUIApplicationDelegate
     {
-        [Export("application:didFinishLaunchingWithOptions:")]
+        //[Export("application:didFinishLaunchingWithOptions:")]
         public bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             LaunchGame();
