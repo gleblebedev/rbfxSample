@@ -60,6 +60,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
@@ -77,6 +78,9 @@
       <Version>0.3.7.208</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="CommandLineParser">
+      <Version>2.8.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -123,10 +127,6 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
-  </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\CoreData\readme.txt" />
     <None Include="Info.plist" />
@@ -490,25 +490,13 @@
     </BundleResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\rbfxSample.Shared\ApplicationOptions.cs">
-      <Link>ApplicationOptions.cs</Link>
-    </Compile>
-    <Compile Include="..\rbfxSample.Shared\CharacterController.cs">
-      <Link>CharacterController.cs</Link>
-    </Compile>
-    <Compile Include="..\rbfxSample.Shared\DemoApplication.cs">
-      <Link>DemoApplication.cs</Link>
-    </Compile>
-    <Compile Include="..\rbfxSample.Shared\RotateObject.cs">
-      <Link>RotateObject.cs</Link>
-    </Compile>
     <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="SceneDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rbfxSample.Shared\rbfxSample.Shared.csproj">
+      <Project>{914EE76E-17B2-4D98-A083-75D04549AA1A}</Project>
+      <Name>rbfxSample.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
