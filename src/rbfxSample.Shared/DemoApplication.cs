@@ -12,6 +12,11 @@ namespace rbfxSample
         private Viewport _viewport;
         private Node _camera;
 
+        private KinematicCharacterController _characterController;
+
+        private RigidBody _body;
+
+        private CollisionShape _shape;
         //private Node _cube;
         //private Node _light;
 
@@ -67,6 +72,20 @@ namespace rbfxSample
             // Viewport
             _scene = new Scene(Context);
             _scene.LoadFile("Scenes/SampleScene.xml");
+            _scene.CreateComponent<PhysicsWorld>();
+
+            var character = _scene.GetChild("character");
+            _body = character.CreateComponent<RigidBody>();
+            _body.CollisionLayer = 1u;
+            _body.IsKinematic = true;
+            _body.IsTrigger = true;
+            _body.AngularFactor = (Vector3.Zero);
+            _body.CollisionEventMode = CollisionEventMode.CollisionAlways;
+
+            _shape = character.CreateComponent<CollisionShape>();
+            _shape.SetCapsule(0.7f, 1.8f, new Vector3(0.0f, 0.9f, 0.0f));
+            
+            _characterController = character.CreateComponent<KinematicCharacterController>();
 
             _camera = _scene.GetChild("Main Camera", true);
             _viewport = new Viewport(Context);
