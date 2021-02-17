@@ -44,7 +44,7 @@ namespace rbfxSample.iOS
             //factories[new StringHash(typeof(KinematicCharacterController))] = (c) => new KinematicCharacterController(c);
             factories[new StringHash(typeof(Viewport))] = (c) => new Viewport(c);
             factories[new StringHash(typeof(Camera))] = (c) => new Camera(c);
-            factories[new StringHash(typeof(RotateObject))] = (c) => new RotateObject(c);
+            //factories[new StringHash(typeof(RotateObject))] = (c) => new RotateObject(c);
             factories[new StringHash(typeof(DebugHud))] = (c) => new DebugHud(c);
             factories[new StringHash(typeof(Zone))] = (c) => new Zone(c);
             factories[new StringHash(typeof(LogicComponent))] = (c) => new LogicComponent(c);
@@ -61,6 +61,7 @@ namespace rbfxSample.iOS
             _context = new Urho3DNet.Context();
             {
                 var options = new ApplicationOptions();
+                options.Windowed = true;
                 //var assets = Android.OS.Environment.ExternalStorageDirectory.ToString();
                 //options.EpResourcePrefixPaths = assets+";"+ assets+"/Assets";
                 _application = new DemoApplication(_context, options);

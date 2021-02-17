@@ -33,18 +33,21 @@ namespace rbfxSample
 
         public override void Setup()
         {
-            EngineParameters[Urho3D.EpFullScreen] = !_options.Windowed;
-            if (_options.Windowed)
+            bool windowed = _options.Windowed;
+            EngineParameters[Urho3D.EpFullScreen] =  !windowed;
+            if (windowed)
             {
                 EngineParameters[Urho3D.EpWindowResizable] = true;
             }
+            //EngineParameters[Urho3D.EpOrientation] = "Portrait";
             if (_options.Width.HasValue)
                 EngineParameters[Urho3D.EpWindowWidth] = _options.Width.Value;
             if (_options.Height.HasValue)
                 EngineParameters[Urho3D.EpWindowHeight] = _options.Height.Value;
             EngineParameters[Urho3D.EpWindowTitle] = "Urho3D/rbfx sample";
             EngineParameters[Urho3D.EpHighDpi] = _options.HighDpi;
-            EngineParameters[Urho3D.EpRenderPath] = _options.RenderPath;
+            if (!string.IsNullOrWhiteSpace(_options.RenderPath))
+                EngineParameters[Urho3D.EpRenderPath] = _options.RenderPath;
         }
 
         public override void Start()
@@ -63,7 +66,8 @@ namespace rbfxSample
             //Context.Renderer.SetViewport(0, _viewport);
             //return;
 
-
+            Context.Renderer.DefaultZone.FogColor = new Color(1.0f, 0.0f, 0.2f, 1.0f);
+            
             // Viewport
             _scene = new Scene(Context);
             _scene.LoadFile("Scenes/SampleScene.xml");
