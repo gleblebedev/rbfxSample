@@ -35,6 +35,6 @@ namespace rbfxSample
 #if !__IOS__
         [Option("renderpath", Required = false, HelpText = "Render path")]
 #endif 
-        public string RenderPath { get; set; } = "RenderPaths/ForwardHWDepth.xml";
+        public string RenderPath { get; set; }// = "RenderPaths/ForwardHWDepth.xml";
     }
 }
