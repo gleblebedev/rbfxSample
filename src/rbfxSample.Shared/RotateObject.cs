@@ -3,6 +3,7 @@
 namespace rbfxSample
 {
     [ObjectFactory]
+    [Preserve(AllMembers = true)]
     class RotateObject : LogicComponent
     {
         public RotateObject(Context context) : base(context)

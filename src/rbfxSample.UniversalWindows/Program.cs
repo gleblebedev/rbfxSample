@@ -11,23 +11,7 @@ namespace rbfxSample.UniversalWindows
         [MTAThread]
         private static void Main()
         {
-            Urho3DInterop.SDL_WinRTRunApp(SdlMain, IntPtr.Zero);
-
-            //var exclusiveViewApplicationSource = new AppViewSource();
-            //CoreApplication.Run(exclusiveViewApplicationSource);
-        }
-
-        static int SdlMain(int argn, IntPtr argv)
-        {
-            var o = new ApplicationOptions();
-            using (var context = new Context())
-            {
-                using (var application = new DemoApplication(context, o))
-                {
-                    application.Run();
-                }
-            }
-            return 0;
+            Launcher.Run(_=> new DemoApplication(_, new ApplicationOptions()));
         }
     }
 }

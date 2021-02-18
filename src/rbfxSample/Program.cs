@@ -9,16 +9,7 @@ namespace rbfxSample
         public static void Main(string[] args)
         {
             Parser.Default.ParseArguments<ApplicationOptions>(args)
-                .WithParsed<ApplicationOptions>(o =>
-                {
-                    using (var context = new Context())
-                    {
-                        using (var application = new DemoApplication(context, o))
-                        {
-                            application.Run();
-                        }
-                    }
-                });
+                .WithParsed<ApplicationOptions>(o => { Launcher.Run(_ => new DemoApplication(_, o)); });
         }
     }
 }
