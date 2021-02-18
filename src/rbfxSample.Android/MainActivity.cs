@@ -19,7 +19,6 @@ namespace rbfxSample
         Theme = "@android:style/Theme.NoTitleBar.Fullscreen", HardwareAccelerated = true, MainLauncher = true)]
     public class MainActivity: UrhoActivity
     {
-        private Urho3DInterop.SdlCallback callback;
         protected override void OnResume()
         {
             Trace.WriteLine("MainActivity.OnResume()");
@@ -31,8 +30,8 @@ namespace rbfxSample
         {
             Trace.WriteLine("MainActivity.OnCreate()");
 
-            callback = (Urho3DInterop.SdlCallback) (SdlMain);
-            Urho3DInterop.SetExternalSdlMain(callback);
+            Launcher.Run(_=>new DemoApplication(_, new ApplicationOptions()));
+
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
         }
@@ -42,20 +41,6 @@ namespace rbfxSample
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-        private int SdlMain(int n, IntPtr v)
-        {
-            Trace.WriteLine("MainActivity.SDLMain()");
-            using (var context = new Urho3DNet.Context())
-            {
-                var options = new ApplicationOptions();
-                //var assets = Android.OS.Environment.ExternalStorageDirectory.ToString();
-                //options.EpResourcePrefixPaths = assets+";"+ assets+"/Assets";
-                using (var application = new DemoApplication(context, options))
-                {
-                    return application.Run();
-                }
-            }
         }
     }
 }
