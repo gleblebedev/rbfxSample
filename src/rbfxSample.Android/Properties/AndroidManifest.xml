@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.rbfxsample.android" android:installLocation="auto">
-	<!-- OpenGL ES 2.0 -->
-	<uses-feature android:glEsVersion="0x00020000" />
+	<!-- OpenGL ES 3.0 -->
+	<uses-feature android:glEsVersion="0x00030000" />
 	<!-- Allow opening network sockets -->
 	<uses-permission android:name="android.permission.INTERNET" />
 	<!-- Allow access to the vibrator -->
