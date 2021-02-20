@@ -31,7 +31,7 @@ jobs:
     inputs:
       targetType: inline
       script: |
-        mkbundle -v --i18n all --deps rbfxSample.exe -o rbfxSample.linux --config $(Agent.BuildDirectory)/s/build/mkbundle/ubuntu.config --cross default --machine-config /etc/mono/4.5/machine.config -L . --library /usr/lib/libmono-native.so
+        mkbundle -v --i18n all --deps rbfxSample.exe -o rbfxSample.linux --config $(Agent.BuildDirectory)/s/build/mkbundle/ubuntu.config --cross default --machine-config /etc/mono/4.5/machine.config -L . -L /usr/lib/mono/4.7.1-api/Facades/ --library /usr/lib/libmono-native.so
       workingDirectory: $(Agent.BuildDirectory)/s/src/rbfxSample/bin/Release/net471
       failOnStderr: true
 

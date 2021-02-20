@@ -39,7 +39,7 @@ jobs:
       targetType: inline
       script: |
         MonoFolder=/Library/Frameworks/Mono.framework/Versions/Current
-        mkbundle -v --i18n all --deps rbfxSample.exe -o rbfxSample.osx --config $(Agent.BuildDirectory)/s/build/mkbundle/osx.config --cross default -L . -L $MonoFolder/lib/ --library $MonoFolder/lib/libmono-native-compat.dylib
+        mkbundle -v --i18n all --deps rbfxSample.exe -o rbfxSample.osx --config $(Agent.BuildDirectory)/s/build/mkbundle/osx.config --cross default -L . -L $MonoFolder/lib/ -L $MonoFolder/lib/mono/4.7.1-api/Facades/ --library $MonoFolder/lib/libmono-native-compat.dylib
       workingDirectory: $(Agent.BuildDirectory)/s/src/rbfxSample/bin/Release/net471
       failOnStderr: true
 
