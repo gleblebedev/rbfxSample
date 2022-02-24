@@ -358,7 +358,7 @@
 		<attribute name="Light Type" value="Directional" />
 		<attribute name="CSM Splits" value="10 30 70 150" />
 		<attribute name="Color" value="1 0.9046614 0.6724432 1" />
-		<attribute name="Brightness Multiplier" value="6.283185" />
+		<attribute name="Brightness Multiplier" value="1" />
 		<attribute name="Use Physical Values" value="false" />
 		<attribute name="Depth Constant Bias" value="0.0001" />
 		<attribute name="Cast Shadows" value="false" />
